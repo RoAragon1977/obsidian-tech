@@ -1,0 +1,142 @@
+:root {
+  --header-height: 4.5rem;
+  --title-color: hsl(0, 0%, 100%);
+  --color-sec: hsl(265, 57%, 48%);
+}
+ul {
+  list-style: none;
+}
+.navLink, .navLogo {
+  text-decoration: none;
+}
+.buttonNav {
+  border: none;
+  background-color: transparent;
+  color: var(--title-color);
+}
+.containerNav {
+  margin-inline: 1.5rem;
+}
+.headerNav {
+  position: fixed;
+  width: 100%;
+  background-color: #000;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+.navBarContainer {
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navLogo {
+  color: var(--title-color);
+  font-weight: 600;
+}
+.navLogo span {
+  color: var(--color-sec);
+}
+.navClose, .navToggle {
+  display: flex;
+  font-size: 1.25rem;
+  color: var(--title-color);
+  cursor: pointer;
+}
+.hiddenLink {
+  display: none;
+  overflow: hidden;
+}
+@media screen and (max-width:1023px) {
+  .navMenu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    padding: 4.5rem 0 0;
+    backdrop-filter: blur(24px);
+    background-color: hsla(0, 0%, 10%, .5);
+    width: 80%;
+    height: 100%;
+    transition: right .4s;
+    z-index: 200;
+  }
+}
+.navList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+}
+.navLink {
+  color: var(--title-color);
+  font-weight: 600;
+  transition: color .4s;
+}
+.navLink:hover {
+  color: var(--color-sec);
+}
+.navClose {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+}
+.showMenu {
+  right: 0;
+}
+.changeBg {
+  background-color: transparent;
+  transition: all .2s;
+}
+.changeBg::after {
+  content: '';
+  position: absolute;
+  width: 1000%;
+  height: 100%;
+  background-color: hsla(0,0%, 10%, .5);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+@media screen and (max-width:320px){
+  .containerNav {
+    margin-inline: 1rem;
+  }
+}
+/* @media screen and (min-width: 576px) {
+
+} */
+@media screen and (min-width:768px) {
+  .navMenu {
+    width: 55%;
+  }
+}
+@media screen and (min-width: 1023px){
+  .navLogo{
+    font-size: 1.25rem;
+  }
+  .containerNav {
+    margin-inline: 1rem;
+  }
+  .navClose, .navToggle {
+    display: none;
+  }
+  .navList {
+    flex-direction: row;
+    align-items: center;
+    column-gap: 3rem;
+    padding-block: .5rem 0;
+  }
+  .navItem {
+    font-size: 1rem;
+  }
+  .navMenu {
+    width: initial;
+    display: flex;
+    align-items: center;
+  }
+  .btnSize {
+    font-size: 1.25rem;
+  }
+}
